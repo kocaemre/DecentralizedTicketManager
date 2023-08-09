@@ -118,6 +118,7 @@ contract ticketseller{
         require(is_event_published == true,"Error code : 3");
 
         userBalances[msg.sender] -= concert.price;
+        userBalances[owner] += concert.price;
 
         seatStatus[seatNo] = true;
 
@@ -132,6 +133,7 @@ contract ticketseller{
         require(is_event_published == true,"Error code : 3");
 
         userBalances[customer] -= concert.price;
+        userBalances[owner] += concert.price;
 
         seatStatus[seatNo] = true;
         return ticket_hash;
